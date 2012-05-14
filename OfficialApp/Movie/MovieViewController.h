@@ -12,12 +12,14 @@
 @interface MovieViewController : UIViewController{
     NSString *movnam;
     NSString *resnam;
-    MPMoviePlayerController *_player;
+    MPMoviePlayerViewController *_player;
+    UIImageView *imageView_;
 }
 
 @property(nonatomic,assign)NSString *movnam;
 @property(nonatomic,assign)NSString *resnam;
-@property(nonatomic,assign)MPMoviePlayerController *_player;
+@property(nonatomic,assign)NSString *restyp;
+@property(nonatomic,assign)MPMoviePlayerViewController *_player;
 
 - (void)play;
 

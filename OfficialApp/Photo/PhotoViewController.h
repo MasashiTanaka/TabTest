@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface PhotoViewController : UIViewController {
-    NSArray *_nameArray;
+    NSArray *nameArray_;
 }
 
 - (void)createThumNail;

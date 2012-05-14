@@ -43,7 +43,7 @@
     
     // サムネイル作成
     NSArray *nameArray = [[NSArray alloc] initWithObjects:@"Argentina", @"Australia", @"Austria", @"Belgium", @"Cameroon", @"Canada", @"China", @"Chile", @"Denmark", nil];
-    _nameArray = nameArray;
+    nameArray_ = nameArray;
 
     NSInteger row = 0;
     NSInteger col = 0;
@@ -86,7 +86,7 @@
 // thumNail press
 - (void)pressThumNail:(UIButton*)button {
     PhotoImageViewController *photoImageController = [[PhotoImageViewController alloc] init];
-    photoImageController._fileName = [_nameArray objectAtIndex:button.tag];
+    photoImageController._fileName = [nameArray_ objectAtIndex:button.tag];
     [self.navigationController pushViewController:photoImageController animated:YES];
 
     [photoImageController release];

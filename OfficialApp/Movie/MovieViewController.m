@@ -13,43 +13,79 @@
 
 @implementation MovieViewController
 
-@synthesize movnam,resnam,_player;
+@synthesize movnam,resnam,restyp,_player;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title=movnam;
-	// Do any additional setup after loading the view, typically from a nib.
+    //self.title=movnam;
+    UIView *contentView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+	self.view = contentView;
+
     [self play];
 }
 
+- (void) viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+    [super viewWillAppear:animated];
+}
+
+
+- (void) viewWillDisappear:(BOOL)animated
+{
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [super viewWillDisappear:animated];
+}
+
 - (void)play {
-    NSString *path = [[NSBundle mainBundle] pathForResource:resnam ofType:@"mp4"];
+    //NSString *path = [[NSBundle mainBundle] pathForResource:resnam ofType:@"mp4"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:resnam ofType:restyp];
     NSURL *url = [NSURL fileURLWithPath:path];
-    MPMoviePlayerController *player = [[MPMoviePlayerController alloc] initWithContentURL:url];
+    MPMoviePlayerViewController *player = [[MPMoviePlayerViewController alloc] initWithContentURL:url];
     _player = player;
     
     // MoviePlayerの設定
-    //player.scalingMode = MPMovieScalingModeAspectFit;
-    //player.controlStyle = MPMovieControlStyleDefault;
+    player.moviePlayer.scalingMode = MPMovieScalingModeAspectFit;
+    player.moviePlayer.controlStyle = MPMovieControlStyleFullscreen;
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(finishPreload:)
                                                  name:MPMediaPlaybackIsPreparedToPlayDidChangeNotification
-                                               object:player];
+                                               object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(finishPlayback:)
                                                  name:MPMoviePlayerPlaybackDidFinishNotification
-                                               object:player];
+                                               object:nil];
     
     // viewに追加
-    [player.view setFrame:CGRectMake(0, 0, 320,300)];
-    //[player.view setFrame:self.view.frame];
+    player.view.frame=CGRectMake(0, 0, 320, 480);
+    player.moviePlayer.backgroundView.backgroundColor=[UIColor blackColor];
     [self.view addSubview:player.view];
-    //[player play];
-    [_player play];
-    //[player release];
+
+    if(restyp != @"mp4") {
+        NSString *imageName;
+        UIImage *image;
+        resnam = [resnam stringByAppendingString:@"_aw"];
+        imageName = [[NSBundle mainBundle] pathForResource:resnam ofType:@"jpg"];
+        image=[UIImage imageWithContentsOfFile:imageName];
+        if(image==nil){
+            imageName = [[NSBundle mainBundle] pathForResource:@"noimgs" ofType:@"jpg"];
+            image=[UIImage imageWithContentsOfFile:imageName];
+        }
+        UIImageView *imageView = [[UIImageView alloc]init];
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        imageView.image=image;
+        imageView.frame=CGRectMake(40,0,240,480);
+        imageView_ = imageView;
+        [self.view addSubview:imageView];
+        [imageView release];
+    }
+
+    //[_player play];
 }
 
 - (void)finishPreload:(NSNotification *)aNotification {
@@ -61,6 +97,7 @@
 }
 
 - (void)finishPlayback:(NSNotification *)aNotification {
+    /*
     MPMoviePlayerController *player = [aNotification object];
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:MPMoviePlayerPlaybackDidFinishNotification
@@ -68,6 +105,27 @@
     [player stop];
     [player release];
     [self.navigationController popViewControllerAnimated:YES];
+     */
+
+    MPMoviePlayerController *player = [aNotification object];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:MPMoviePlayerPlaybackDidFinishNotification
+                                                  object:player];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+                                         duration:(NSTimeInterval)duration {
+    if (interfaceOrientation == UIInterfaceOrientationPortrait ||
+        interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
+        imageView_.center = CGPointMake(160, 240);
+        imageView_.bounds = CGRectMake(0, 0, 240, 480);
+    }
+    else if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft ||
+             interfaceOrientation == UIInterfaceOrientationLandscapeRight) {
+        imageView_.center = CGPointMake(240, 160);
+        imageView_.bounds = CGRectMake(0, 0, 480, 180);
+    }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

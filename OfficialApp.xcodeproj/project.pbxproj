@@ -33,6 +33,14 @@
 		9B339C9E155CADF900E5F6C6 /* TwitterWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B339C9D155CADF900E5F6C6 /* TwitterWebViewController.m */; };
 		9B339CAF155D107500E5F6C6 /* InfoStatusXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B339CAC155D107500E5F6C6 /* InfoStatusXMLParser.m */; };
 		9B339CB0155D107500E5F6C6 /* InfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B339CAE155D107500E5F6C6 /* InfoTableViewController.m */; };
+		9B36A91F15612983005E1B5A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B36A91E15612983005E1B5A /* Default.png */; };
+		9B36A924156129AB005E1B5A /* endoor_aw.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9B36A921156129AB005E1B5A /* endoor_aw.jpg */; };
+		9B36A925156129AB005E1B5A /* ixy_cm.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9B36A922156129AB005E1B5A /* ixy_cm.jpg */; };
+		9B36A926156129AB005E1B5A /* noimgs.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9B36A923156129AB005E1B5A /* noimgs.jpg */; };
+		9B36A92B156129BE005E1B5A /* dress_.mov in Resources */ = {isa = PBXBuildFile; fileRef = 9B36A927156129BE005E1B5A /* dress_.mov */; };
+		9B36A92C156129BE005E1B5A /* endoor.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9B36A928156129BE005E1B5A /* endoor.mp3 */; };
+		9B36A92D156129BE005E1B5A /* ixy_cm.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 9B36A929156129BE005E1B5A /* ixy_cm.mp4 */; };
+		9B36A92E156129BE005E1B5A /* pikachu.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9B36A92A156129BE005E1B5A /* pikachu.wav */; };
 		9B3F815E155A1F6C00958F0A /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B3F815D155A1F6C00958F0A /* MediaPlayer.framework */; };
 		9B3F8168155A201E00958F0A /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B3F8162155A201E00958F0A /* first.png */; };
 		9B3F8169155A201E00958F0A /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B3F8163155A201E00958F0A /* first@2x.png */; };
@@ -88,6 +96,14 @@
 		9B339CAC155D107500E5F6C6 /* InfoStatusXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoStatusXMLParser.m; sourceTree = "<group>"; };
 		9B339CAD155D107500E5F6C6 /* InfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoTableViewController.h; sourceTree = "<group>"; };
 		9B339CAE155D107500E5F6C6 /* InfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoTableViewController.m; sourceTree = "<group>"; };
+		9B36A91E15612983005E1B5A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		9B36A921156129AB005E1B5A /* endoor_aw.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = endoor_aw.jpg; sourceTree = "<group>"; };
+		9B36A922156129AB005E1B5A /* ixy_cm.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ixy_cm.jpg; sourceTree = "<group>"; };
+		9B36A923156129AB005E1B5A /* noimgs.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = noimgs.jpg; sourceTree = "<group>"; };
+		9B36A927156129BE005E1B5A /* dress_.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = dress_.mov; sourceTree = "<group>"; };
+		9B36A928156129BE005E1B5A /* endoor.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = endoor.mp3; sourceTree = "<group>"; };
+		9B36A929156129BE005E1B5A /* ixy_cm.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ixy_cm.mp4; sourceTree = "<group>"; };
+		9B36A92A156129BE005E1B5A /* pikachu.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pikachu.wav; sourceTree = "<group>"; };
 		9B3F815D155A1F6C00958F0A /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		9B3F8162155A201E00958F0A /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		9B3F8163155A201E00958F0A /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
@@ -168,10 +184,14 @@
 		9B1C59D7155BB25500D7AA3E /* resouce */ = {
 			isa = PBXGroup;
 			children = (
+				9B36A927156129BE005E1B5A /* dress_.mov */,
+				9B36A928156129BE005E1B5A /* endoor.mp3 */,
+				9B36A929156129BE005E1B5A /* ixy_cm.mp4 */,
+				9B36A92A156129BE005E1B5A /* pikachu.wav */,
 				9B1C59D8155BB25500D7AA3E /* dress.mp4 */,
-				9B1C59D9155BB25500D7AA3E /* image */,
 				9B1C59DD155BB25500D7AA3E /* mrmarlowe.mp4 */,
 				9B1C59DE155BB25500D7AA3E /* vip.mp4 */,
+				9B1C59D9155BB25500D7AA3E /* image */,
 			);
 			path = resouce;
 			sourceTree = "<group>";
@@ -179,6 +199,9 @@
 		9B1C59D9155BB25500D7AA3E /* image */ = {
 			isa = PBXGroup;
 			children = (
+				9B36A921156129AB005E1B5A /* endoor_aw.jpg */,
+				9B36A922156129AB005E1B5A /* ixy_cm.jpg */,
+				9B36A923156129AB005E1B5A /* noimgs.jpg */,
 				9B1C59DA155BB25500D7AA3E /* dress.jpg */,
 				9B1C59DB155BB25500D7AA3E /* mrmarlowe.jpg */,
 				9B1C59DC155BB25500D7AA3E /* vip.jpg */,
@@ -245,6 +268,7 @@
 		9B3F8161155A201E00958F0A /* image */ = {
 			isa = PBXGroup;
 			children = (
+				9B36A91E15612983005E1B5A /* Default.png */,
 				9B3F8162155A201E00958F0A /* first.png */,
 				9B3F8163155A201E00958F0A /* first@2x.png */,
 				9B3F8164155A201E00958F0A /* second.png */,
@@ -426,6 +450,14 @@
 				9B1C59FC155BC51E00D7AA3E /* Denmark.gif in Resources */,
 				9B1C59FD155BC51E00D7AA3E /* Finland.gif in Resources */,
 				9B1C59FE155BC51E00D7AA3E /* France.gif in Resources */,
+				9B36A91F15612983005E1B5A /* Default.png in Resources */,
+				9B36A924156129AB005E1B5A /* endoor_aw.jpg in Resources */,
+				9B36A925156129AB005E1B5A /* ixy_cm.jpg in Resources */,
+				9B36A926156129AB005E1B5A /* noimgs.jpg in Resources */,
+				9B36A92B156129BE005E1B5A /* dress_.mov in Resources */,
+				9B36A92C156129BE005E1B5A /* endoor.mp3 in Resources */,
+				9B36A92D156129BE005E1B5A /* ixy_cm.mp4 in Resources */,
+				9B36A92E156129BE005E1B5A /* pikachu.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
