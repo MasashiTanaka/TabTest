@@ -9,8 +9,13 @@
 #import "AppDelegate.h"
 
 #import "FirstViewController.h"
-
-#import "SecondViewController.h"
+#import "BlogViewController.h"
+#import "TwitterWebViewController.h"
+#import "TwitterTableViewController.h"
+#import "InfoTableViewController.h"
+#import "MusicTableViewController.h"
+#import "MovieTableViewController.h"
+#import "PhotoViewController.h"
 
 @implementation AppDelegate
 
@@ -22,11 +27,32 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     UIViewController *viewController1 = [[FirstViewController alloc] initWithNibName:@"FirstViewController" bundle:nil];
-    UIViewController *viewController2 = [[SecondViewController alloc] initWithNibName:@"SecondViewController" bundle:nil];
+    BlogViewController *blogController = [[BlogViewController alloc] init];
+    PhotoViewController *photoController = [[PhotoViewController alloc] init];
+    TwitterWebViewController *twitterWebController = [[TwitterWebViewController alloc] init];
+    TwitterTableViewController *twitterTable = [[TwitterTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    InfoTableViewController *infoTable = [[InfoTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    MusicTableViewController *musicTable = [[MusicTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    MovieTableViewController *movieTable = [[MovieTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    UINavigationController *twitter = [[UINavigationController alloc] initWithRootViewController:twitterTable];
+    UINavigationController *info = [[UINavigationController alloc] initWithRootViewController:infoTable];
+    UINavigationController *music = [[UINavigationController alloc] initWithRootViewController:musicTable];
+    UINavigationController *movie = [[UINavigationController alloc] initWithRootViewController:movieTable];
+    UINavigationController *photo = [[UINavigationController alloc] initWithRootViewController:photoController];
+    
     self.tabBarController = [[UITabBarController alloc] init];
-    self.tabBarController.viewControllers = [NSArray arrayWithObjects:viewController1, viewController2, nil];
+    self.tabBarController.delegate = self;
+    self.tabBarController.viewControllers = [NSArray arrayWithObjects:viewController1, info, blogController, music, twitter, twitterWebController, photo, movie, nil];
+    //self.tabBarController.viewControllers = [NSArray arrayWithObjects:viewController1, blogController, twitterWebController, movie, nil];
     self.window.rootViewController = self.tabBarController;
+
     [self.window makeKeyAndVisible];
+    
+    // 　tabbarのeditボタン非表示
+    self.tabBarController.customizableViewControllers=nil;
+    //self.tabBarController.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    self.tabBarController.moreNavigationController.navigationBar.barStyle = UIBarStyleBlack;
+    
     return YES;
 }
 
@@ -57,12 +83,21 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-/*
 // Optional UITabBarControllerDelegate method.
-- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
-{
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
+
+    [tabBarController.moreNavigationController popViewControllerAnimated:NO];
+
+    // navigationBarのクラスはrootViewに戻したい
+    for (id obj in tabBarController.viewControllers) {
+        if ([obj isKindOfClass:[UINavigationController class]]) {
+            UINavigationController *nav = obj;
+            [nav popViewControllerAnimated:NO];
+            //NSLog(@"3333333");
+        }
+        //NSLog(@"%@", obj);
+    }
 }
-*/
 
 /*
 // Optional UITabBarControllerDelegate method.
